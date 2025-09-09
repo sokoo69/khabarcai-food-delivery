@@ -1,0 +1,131 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4%;
+}
+.navbar .logo{
+    width: max(10%,80px);
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #FF4C24, #FF6B35, #FF8E53, #FFB366, #FFD700);
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-shadow: 2px 2px 4px rgba(255, 76, 36, 0.3);
+    animation: adminGradient 4s ease-in-out infinite, adminPulse 3s ease-in-out infinite;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.logo-text::before {
+    content: '⚙️✨';
+    position: absolute;
+    left: -35px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    animation: adminSpin 4s linear infinite, adminSparkle 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+}
+
+.logo-text::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(45deg, #FF4C24, #FF6B35, #FF8E53, #FFB366);
+    background-size: 200% 200%;
+    border-radius: 2px;
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 8px rgba(255, 76, 36, 0.6);
+}
+
+.logo-text:hover::after {
+    width: 100%;
+    animation: adminShimmer 0.8s ease-in-out;
+}
+
+.logo-text:hover {
+    transform: scale(1.08) rotateY(8deg) rotateX(3deg);
+    filter: drop-shadow(0 0 15px rgba(255, 76, 36, 0.7)) drop-shadow(0 0 30px rgba(255, 107, 53, 0.5));
+    animation-play-state: paused;
+}
+
+.logo-text::before::after {
+    content: '💫';
+    position: absolute;
+    right: -25px;
+    top: -8px;
+    font-size: 14px;
+    animation: adminTwinkle 2s ease-in-out infinite;
+}
+
+@keyframes adminGradient {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes adminPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+@keyframes adminSpin {
+    from {
+        transform: translateY(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+@keyframes adminSparkle {
+    0%, 100% {
+        filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+    }
+    50% {
+        filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.8));
+    }
+}
+
+@keyframes adminShimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes adminTwinkle {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+.navbar .profile{
+    width: 40px;
+}
